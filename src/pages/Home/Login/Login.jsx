@@ -1,7 +1,6 @@
 
 
-
-const Register = () => {
+const Login = () => {
     return (
         <div>
 
@@ -9,4 +8,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default Login;
