@@ -1,9 +1,32 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Dropdown } from 'flowbite-react';
+import { useContext } from "react";
+import { AuthContext } from "../../../provider/AuthProvider";
+import userImg from '../../../assets/user.png';
+
+
+
+
 const Nav = () => {
+    const { user, logOut } = useContext(AuthContext)
+    // console.log(user)
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error))
+    }
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink className="mx-1" to="/services">Services</NavLink></li>
+        {
+            user?.email ? <>
+                <li><NavLink to='/bookings'>Bookings</NavLink></li>
+                <li><button onClick={handleLogOut}>Log Out</button></li>
+            </>
+                :
+                <li><Link to="/login">Login</Link></li>
+        }
         <li>
             {/* <details>
                 <summary>Dashboard</summary>
@@ -34,7 +57,12 @@ const Nav = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <div className="avatar mt-4">
+                    <div className="w-20 rounded-full">
+                        <img src="img.jpg" />
+                    </div>
+                </div>
+                <a className="btn btn-ghost text-xl">Tours and Guide Agency</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -42,7 +70,14 @@ const Nav = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                <div className="w-10 rounded-full">
+
+                    {user ?
+                        < img title={user?.email} src={user?.photoURL} alt="" />
+                        :
+                        <img title={user?.email} src={userImg} alt="" />
+                    }
+                </div>
             </div>
         </div>
     );
