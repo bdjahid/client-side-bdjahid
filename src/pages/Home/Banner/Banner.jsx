@@ -1,9 +1,9 @@
 import { Carousel } from "flowbite-react";
-import img1 from '../../../../public/304-Clothes-Swap-banner.png'
-import img2 from '../../../../public/img3.jpeg'
-import img3 from '../../../../public/images.jpeg'
-import img4 from '../../../../public/imags.jpeg'
-import img5 from '../../../../public/img2.jpeg'
+import img1 from '../../../../public/ima2.jpeg'
+import img2 from '../../../../public/img1.jpeg'
+import img3 from '../../../../public/img3.jpg'
+import img4 from '../../../../public/img4.jpeg'
+import img5 from '../../../../public/img5.jpg'
 
 
 
