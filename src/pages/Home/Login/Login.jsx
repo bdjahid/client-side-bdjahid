@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
-    const { createUser, googleSignIn, githubSignIn } = useContext(AuthContext);
+    const { signInUser, googleSignIn, githubSignIn } = useContext(AuthContext);
 
     const [error, setError] = useState();
     const [success, setSuccess] = useState();
@@ -34,6 +34,7 @@ const Login = () => {
             Swal.fire({
                 title: 'Error!',
                 text: 'Your password did not match',
+                icon: 'error',
                 confirmButtonText: 'ok'
             })
             setError('Your password did not match')
@@ -41,7 +42,7 @@ const Login = () => {
         }
 
         // create user
-        createUser(email, password)
+        signInUser(email, password)
             .then(result => {
                 const user = result.user
                 console.log(user)
@@ -50,7 +51,7 @@ const Login = () => {
                 Swal.fire({
                     title: 'Success!',
                     text: 'Wow User logged in Successfully',
-                    icon: 'error',
+                    icon: 'success',
                     confirmButtonText: 'ok'
                 })
             })
