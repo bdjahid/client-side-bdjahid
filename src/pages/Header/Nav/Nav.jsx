@@ -1,8 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
-import { Dropdown } from 'flowbite-react';
 import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import userImg from '../../../assets/user.png';
+import { Dropdown } from "flowbite-react";
 
 
 
@@ -58,7 +58,7 @@ const Nav = () => {
                     </ul>
                 </div>
                 <div className="avatar mt-4">
-                    <div className="w-20 rounded-full">
+                    <div className="w-16 rounded-full">
                         <img src="img.jpg" />
                     </div>
                 </div>
@@ -70,10 +70,13 @@ const Nav = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <div className="w-10 rounded-full">
-
+                <div className="text-sm">
+                    <p className="text-right">{user?.displayName}</p>
+                    <p>{user?.email}</p>
+                </div>
+                <div className="w-14 rounded-full ms-3">
                     {user ?
-                        < img title={user?.email} src={user?.photoURL} alt="" />
+                        <img className="rounded-full" title={user?.email} src={user?.photoURL} alt="" />
                         :
                         <img title={user?.email} src={userImg} alt="" />
                     }
