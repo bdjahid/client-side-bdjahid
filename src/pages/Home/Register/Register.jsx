@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from './../../../provider/AuthProvider';
 import { Link } from "react-router-dom";
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
+import Swal from "sweetalert2";
 
 
 
@@ -23,6 +24,12 @@ const Register = () => {
             .then(result => {
                 const user = result.user
                 console.log(user)
+                // setSuccess('User Created Successfully')
+                Swal.fire({
+                    title: 'Successfully!',
+                    text: 'Wow User Created Successfully',
+                    confirmButtonText: 'ok'
+                })
             })
             .catch(error => {
                 console.log(error)
@@ -30,44 +37,47 @@ const Register = () => {
     }
 
     return (
-        <div className="flex justify-center">
-            <form onSubmit={handleRegister} className="flex max-w-md flex-col gap-4 w-full">
-                <div>
-                    <div className="mb-2 block">
-                        <Label htmlFor="name2" value="Your name" />
+        <>
+            <div className="flex justify-center">
+                <form onSubmit={handleRegister} className="flex max-w-md flex-col gap-4 w-full">
+                    <div>
+                        <div className="mb-2 block">
+                            <Label htmlFor="name2" value="Your name" />
+                        </div>
+                        <TextInput name="name" id="name2" type="text" placeholder="inter your name" required shadow />
                     </div>
-                    <TextInput name="name" id="name2" type="text" placeholder="inter your name" required shadow />
-                </div>
-                <div>
-                    <div className="mb-2 block">
-                        <Label htmlFor="email2" value="Your email" />
+                    <div>
+                        <div className="mb-2 block">
+                            <Label htmlFor="email2" value="Your email" />
+                        </div>
+                        <TextInput name="email" id="email2" type="email" placeholder="name@flowbite.com" required shadow />
                     </div>
-                    <TextInput name="email" id="email2" type="email" placeholder="name@flowbite.com" required shadow />
-                </div>
-                <div>
-                    <div className="mb-2 block">
-                        <Label htmlFor="password2" value="Your password" />
+                    <div>
+                        <div className="mb-2 block">
+                            <Label htmlFor="password2" value="Your password" />
+                        </div>
+                        <TextInput name="password" id="password2" type="password" required shadow />
                     </div>
-                    <TextInput name="password" id="password2" type="password" required shadow />
-                </div>
-                <div>
-                    <div className="mb-2 block">
-                        <Label htmlFor="repeat-password" value="Repeat password" />
+                    <div>
+                        <div className="mb-2 block">
+                            <Label htmlFor="repeat-password" value="Repeat password" />
+                        </div>
+                        <TextInput name="repeat" id="repeat-password" type="password" required shadow />
                     </div>
-                    <TextInput name="repeat" id="repeat-password" type="password" required shadow />
-                </div>
-                <div className="flex items-center gap-2">
-                    <Checkbox id="agree" />
-                    <Label htmlFor="agree" className="flex">
-                        I agree with the&nbsp;
-                        <Link href="#" className="text-cyan-600 hover:underline dark:text-cyan-500">
-                            terms and conditions
-                        </Link>
-                    </Label>
-                </div>
-                <Button type="submit">Register new account</Button>
-            </form>
-        </div>
+                    <div className="flex items-center gap-2">
+                        <Checkbox id="agree" />
+                        <Label htmlFor="agree" className="flex">
+                            I agree with the&nbsp;
+                            <Link href="#" className="text-cyan-600 hover:underline dark:text-cyan-500">
+                                terms and conditions
+                            </Link>
+                        </Label>
+                    </div>
+                    <Button type="submit">Register new account</Button>
+                </form>
+            </div>
+            <p className='my-4 text-center'>Already have an account <Link className='text-orange-400' to="/login"> Login</Link></p>
+        </>
     );
 };
 
