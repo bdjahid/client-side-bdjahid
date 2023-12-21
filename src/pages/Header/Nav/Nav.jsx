@@ -41,7 +41,6 @@ const Nav = () => {
                 <Dropdown.Item><li><NavLink to="/addservices">Add Services</NavLink></li></Dropdown.Item>
                 <Dropdown.Item><li><NavLink to="/myservices">My Services</NavLink></li></Dropdown.Item>
                 <Dropdown.Item><li><NavLink to="/myshedules">My schedules</NavLink></li></Dropdown.Item>
-                <Dropdown.Item>Sign out</Dropdown.Item>
             </Dropdown>
 
         </li>

@@ -4,6 +4,7 @@ import Banner from "../Banner/Banner";
 import Services from "../Services/Services";
 import About from "./About/About";
 import Acordion from "./Acordion/Acordion";
+import Tour from "./Tour/Tour";
 
 
 
@@ -17,6 +18,7 @@ const Home = () => {
                 <Button gradientMonochrome="info">Show All Service</Button>
             </div>
             <About></About>
+            <Tour></Tour>
             <Acordion></Acordion>
         </div>
     );

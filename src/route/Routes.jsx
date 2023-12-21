@@ -6,6 +6,9 @@ import Root from "../layout/Root";
 import Login from "../pages/Home/Login/Login";
 import Register from "../pages/Home/Register/Register";
 import Services from "../pages/Home/Services/Services";
+import AddService from "../pages/AddService/AddService";
+import MyServices from "../pages/MyServices/MyServices";
+import MySchedules from "../pages/MySchedules/MySchedules";
 
 
 const router = createBrowserRouter([
@@ -21,6 +24,18 @@ const router = createBrowserRouter([
             {
                 path: "/services",
                 element: <Services></Services>
+            },
+            {
+                path: "/addservices",
+                element: <AddService></AddService>
+            },
+            {
+                path: "/myservices",
+                element: <MyServices></MyServices>
+            },
+            {
+                path: "/myshedules",
+                element: <MySchedules></MySchedules>
             },
             {
                 path: "/login",
