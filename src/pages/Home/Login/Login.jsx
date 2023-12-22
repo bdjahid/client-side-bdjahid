@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button, Label, TextInput } from 'flowbite-react';
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const { signInUser, googleSignIn, githubSignIn } = useContext(AuthContext);
@@ -88,6 +89,9 @@ const Login = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Tours and Guide Agency | Login</title>
+            </Helmet>
             <div className="flex justify-center">
                 <form onSubmit={handleLogin} className="flex max-w-md flex-col gap-4 w-full">
                     <div>

@@ -1,13 +1,13 @@
-import img from '../../../../assets/3376728.png'
-import img1 from '../../../../assets/4586974.png'
-import img2 from '../../../../assets/7131204.png'
-import img3 from '../../../../assets/vector-illustration-modern-single-isolated-260nw-58413604.webp'
-import img4 from '../../../../assets/images.jpeg'
-import img5 from '../../../../assets/pngtree-travel-agency-line-icon-vector-png-image_6696786.png'
-import img6 from '../../../../assets/pngtree-website-travel-agency-icon-flight-airliner-minute-vector-png-image_16096976.png'
-import img7 from '../../../../assets/travel-agency-5913786-4974047.webp'
-import img8 from '../../../../assets/vector-illustration-modern-single-isolated-260nw-58413604.webp'
-import image from '../../../../assets/hotel.jpg'
+import img from '../../../assets/3376728.png'
+import img1 from '../../../assets/4586974.png'
+import img2 from '../../../assets/7131204.png'
+import img3 from '../../../assets/vector-illustration-modern-single-isolated-260nw-58413604.webp'
+import img4 from '../../../assets/images.jpeg'
+import img5 from '../../../assets/pngtree-travel-agency-line-icon-vector-png-image_6696786.png'
+import img6 from '../../../assets/pngtree-website-travel-agency-icon-flight-airliner-minute-vector-png-image_16096976.png'
+import img7 from '../../../assets/travel-agency-5913786-4974047.webp'
+import img8 from '../../../assets/vector-illustration-modern-single-isolated-260nw-58413604.webp'
+import image from '../../../assets/hotel.jpg'
 const Tour = () => {
     return (
         <div>

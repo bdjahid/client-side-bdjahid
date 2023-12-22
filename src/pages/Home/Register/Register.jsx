@@ -5,6 +5,7 @@ import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { Helmet } from "react-helmet-async";
 
 
 const Register = () => {
@@ -78,6 +79,9 @@ const Register = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Tours and Guide Agency | Register</title>
+            </Helmet>
             <div className="flex justify-center">
                 <form onSubmit={handleRegister} className="flex max-w-md flex-col gap-4 w-full">
                     <div>

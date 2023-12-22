@@ -1,5 +1,5 @@
 
-import img from '../../../../../public/img4.jpg'
+import img from '../../../../public/img4.jpg'
 
 
 const About = () => {
