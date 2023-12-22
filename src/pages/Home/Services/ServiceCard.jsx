@@ -17,7 +17,7 @@ const ServiceCard = ({ service }) => {
                     <p>{name}</p>
                     <p>{area}</p>
                     <div className="avatar mt-4">
-                        <div className="w-24 rounded-full">
+                        <div className="w-52 rounded-full">
                             <img src={image} />
                         </div>
                     </div>

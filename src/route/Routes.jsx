@@ -10,8 +10,10 @@ import AddService from "../pages/AddService/AddService";
 import MyServices from "../pages/MyServices/MyServices";
 import MySchedules from "../pages/MySchedules/MySchedules";
 import ViewDetails from "../pages/Home/ViewDetails/ViewDetails";
-import SingleServices from "../pages/Home/Home/SingleServices/SingleServices";
+import SingleServices from "../pages/Home/SingleServices/SingleServices";
 import PrivateRoute from './PrivateRoute';
+import ManageService from "../pages/Home/ManageService/ManageService";
+import Booking from "../pages/Home/Booking/Booking";
 
 
 const router = createBrowserRouter([
@@ -34,10 +36,19 @@ const router = createBrowserRouter([
                 element: <SingleServices></SingleServices>
             },
             {
-                path: "/details/:id",
+                path: "/manageservice",
+                element: <ManageService></ManageService>
+            },
+            {
+                path: "/services/:id",
                 element: <PrivateRoute>
                     <ViewDetails></ViewDetails>
                 </PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+            },
+            {
+                path: "/booking/:id",
+                element: <Booking></Booking>,
                 loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
             },
             {
