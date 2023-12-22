@@ -61,7 +61,9 @@ const router = createBrowserRouter([
             },
             {
                 path: "/myshedules",
-                element: <MySchedules></MySchedules>
+                element: <PrivateRoute>
+                    <MySchedules></MySchedules>
+                </PrivateRoute>
             },
             {
                 path: "/login",
