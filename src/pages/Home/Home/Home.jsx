@@ -17,6 +17,10 @@ const Home = () => {
                 <title>Tours and Guide Agency | Home</title>
             </Helmet>
             <Banner></Banner>
+            <div>
+                <h2 className="text-4xl text-fuchsia-600 font-bold text-center my-10">Our Services</h2>
+                <p className="text-center mx-32">Discover the world with Our Services tours agency! Embark on unforgettable adventures curated just for you. From breathtaking landscapes to cultural escapades, our expertly crafted tours ensure an immersive and seamless experience. Let us take you on a journey of discovery and create memories that last a lifetime.</p>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
                 {
                     services.slice(0, 6).map(service => <Card

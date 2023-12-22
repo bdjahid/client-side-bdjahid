@@ -20,6 +20,7 @@ const Nav = () => {
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink className="mx-1" to="/services">Services</NavLink></li>
+        {/* <li><NavLink className="mx-1" to="/singleservices">Single Services</NavLink></li> */}
         {
             user?.email ? <>
                 <li><NavLink to='/bookings'>Bookings</NavLink></li>
@@ -27,6 +28,10 @@ const Nav = () => {
             </>
                 :
                 <li><Link to="/login">Login</Link></li>
+        }
+        {
+            user &&
+            <li><button onClick={handleLogOut}>Log Out</button></li>
         }
         <li>
             {/* <details>
@@ -37,13 +42,20 @@ const Nav = () => {
                     <li><NavLink to="/myshedules">My schedules</NavLink></li>
                 </ul>
             </details> */}
+            {
+                user &&
+                <Dropdown label="Dashboard" inline>
+                    <Dropdown.Item><li><NavLink to="/addservices">Add Services</NavLink></li></Dropdown.Item>
+                    <Dropdown.Item><li><NavLink to="/myservices">My Services</NavLink></li></Dropdown.Item>
+                    <Dropdown.Item><li><NavLink to="/myshedules">My schedules</NavLink></li></Dropdown.Item>
+                </Dropdown>
+            }
 
-            <Dropdown label="Dashboard" inline>
+            {/* <Dropdown label="Dashboard" inline>
                 <Dropdown.Item><li><NavLink to="/addservices">Add Services</NavLink></li></Dropdown.Item>
                 <Dropdown.Item><li><NavLink to="/myservices">My Services</NavLink></li></Dropdown.Item>
                 <Dropdown.Item><li><NavLink to="/myshedules">My schedules</NavLink></li></Dropdown.Item>
-            </Dropdown>
-
+            </Dropdown> */}
         </li>
     </>
     return (

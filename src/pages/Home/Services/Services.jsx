@@ -17,8 +17,8 @@ const Services = () => {
             <Helmet>
                 <title>Tours and Guide Agency | Services</title>
             </Helmet>
-            <h2 className="text-4xl text-fuchsia-600 font-bold text-center">Our Services</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
+            <h2 className="text-4xl text-fuchsia-600 font-bold text-center my-10">Our Services</h2>
+            <div>
                 {
                     services.slice(0, dataLength).map(service => <ServiceCard
                         key={service._id}
@@ -27,7 +27,7 @@ const Services = () => {
                 }
             </div>
             <div className={dataLength === services.length ? 'hidden' : ''}>
-                <div className="text-center my-8">
+                <div className="text-center mb-20">
                     <button onClick={() => setDataLength(services.length)} className="btn btn-info">Show all services</button>
                 </div>
             </div>
