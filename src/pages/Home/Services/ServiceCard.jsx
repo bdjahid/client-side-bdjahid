@@ -1,10 +1,11 @@
 import { AvatarGroup } from "flowbite-react";
+import { Link } from "react-router-dom";
 
 
 
 
 const ServiceCard = ({ service }) => {
-    const { service_name, img, price, description, name, image, area } = service
+    const { _id, service_name, img, price, description, name, image, area } = service
     return (
         <div className="card w-full bg-base-100 shadow-xl">
             <figure><img src={img} alt="Shoes" /></figure>
@@ -21,9 +22,11 @@ const ServiceCard = ({ service }) => {
                         </div>
                     </div>
                 </div>
-                <div className="card-actions justify-end">
-                    <button className="btn btn-info">View Details</button>
-                </div>
+                <Link to={`/details/${_id}`}>
+                    <div className="card-actions justify-end">
+                        <button className="btn btn-info">View Details</button>
+                    </div>
+                </Link>
             </div>
         </div>
     );

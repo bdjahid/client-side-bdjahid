@@ -11,7 +11,7 @@ const Footers = () => {
                             <Footer.Link href="#">
                                 <div className="avatar mt-4">
                                     <div className="w-16 rounded-full">
-                                        <img src="img.jpg" />
+                                        <img src="/img.jpg" />
                                     </div>
                                 </div>
                             </Footer.Link>

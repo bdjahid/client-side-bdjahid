@@ -59,7 +59,7 @@ const Nav = () => {
                 </div>
                 <div className="avatar mt-4">
                     <div className="w-16 rounded-full">
-                        <img src="img.jpg" />
+                        <img src="/img.jpg" />
                     </div>
                 </div>
                 <a className="btn btn-ghost text-xl">Tours and Guide Agency</a>
