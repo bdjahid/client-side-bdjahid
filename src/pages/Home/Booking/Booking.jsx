@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 
@@ -27,7 +28,25 @@ const Booking = () => {
             price: price
         }
         console.log(order)
-
+        fetch('http://localhost:5000/bookings', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Service book successfully',
+                        icon: 'success',
+                        confirmButtonText: 'ok'
+                    })
+                }
+            })
 
     }
 
