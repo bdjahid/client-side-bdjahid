@@ -14,6 +14,7 @@ import SingleServices from "../pages/Home/SingleServices/SingleServices";
 import PrivateRoute from './PrivateRoute';
 import ManageService from "../pages/Home/ManageService/ManageService";
 import Booking from "../pages/Home/Booking/Booking";
+import Update from "../pages/Update/Update";
 
 
 const router = createBrowserRouter([
@@ -54,6 +55,11 @@ const router = createBrowserRouter([
             {
                 path: "/addservices",
                 element: <AddService></AddService>
+            },
+            {
+                path: "/update/:id",
+                element: <Update></Update>,
+                loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
             },
             {
                 path: "/myservices",

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const TableCart = ({ booking }) => {
@@ -44,7 +45,9 @@ const TableCart = ({ booking }) => {
                 <p>Click the button to watch on Jetflix app.</p>
                 <div className="card-actions justify-end">
                     <button onClick={() => handleDelete(_id)} className="btn btn-primary">DELETE</button>
-                    <button className="btn btn-primary">UPDATE</button>
+                    <Link to={`/update/${_id}`}>
+                        <button className="btn btn-primary">UPDATE</button>
+                    </Link>
                 </div>
             </div>
         </div>

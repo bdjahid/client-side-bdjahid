@@ -21,6 +21,7 @@ const TableRow = ({ book }) => {
                 {service}
             </td>
             <td>{email}</td>
+            <td>{date}</td>
             <td>${price}</td>
             <th>
                 <button className="btn btn-ghost btn-xs">details</button>
