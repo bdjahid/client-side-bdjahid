@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 
 
@@ -9,7 +10,6 @@ const AddService = () => {
     console.log(user)
     const handleAddService = e => {
         e.preventDefault()
-        console.log('click')
         const from = e.target;
         const photo = from.photo.value;
         const service = from.service.value;
@@ -21,6 +21,27 @@ const AddService = () => {
 
         const newService = { photo, service, name, email, price, area, description };
         console.log(newService)
+
+
+        fetch('http://localhost:5000/product', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newService)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Service Added successfully',
+                        icon: 'success',
+                        confirmButtonText: 'ok'
+                    })
+                }
+            })
 
 
     }
@@ -46,33 +67,33 @@ const AddService = () => {
                     </div>
                     <div className="form-control mb-5">
                         <label className="label">
-                            <span className="label-text">Name</span>
+                            <span className="label-text">Service Provider Name</span>
                         </label>
                         <input defaultValue={user?.displayName
                         } type="text" name="name" placeholder="Enter your name" className="input input-bordered" required />
                     </div>
                     <div className="form-control mb-5">
                         <label className="label">
-                            <span className="label-text">Email</span>
+                            <span className="label-text">Service Provider Email</span>
                         </label>
                         <input defaultValue={user?.email} type="text" name="email" placeholder="Enter email name" className="input input-bordered" required />
                     </div>
                     <div className="form-control w-full mb-5">
                         <label className="label">
-                            <span className="label-text">Price</span>
+                            <span className="label-text">Service Price</span>
                         </label>
                         <input type="text" name="price" placeholder="Enter Price" className="input input-bordered" required />
                     </div>
                     <div className="form-control w-full mb-5">
                         <label className="label">
-                            <span className="label-text">Area</span>
+                            <span className="label-text">Service Location</span>
                         </label>
                         <input type="text" name="area" placeholder="area" className="input input-bordered" required />
                     </div>
                 </div>
                 <div className="form-control mb-5">
                     <label className="label">
-                        <span className="label-text">Description</span>
+                        <span className="label-text">Service Description</span>
                     </label>
                     <input type="text" name="description" placeholder="Enter description" className="input input-bordered w-full" required />
                 </div>

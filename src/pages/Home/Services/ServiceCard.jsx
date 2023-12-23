@@ -22,7 +22,7 @@ const ServiceCard = ({ service }) => {
                         </div>
                     </div>
                 </div>
-                <Link to={`/details/${_id}`}>
+                <Link to={`/services/${_id}`}>
                     <div className="card-actions justify-end">
                         <button className="btn btn-info">View Details</button>
                     </div>

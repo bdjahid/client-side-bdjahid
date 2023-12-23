@@ -29,6 +29,7 @@ const MySchedules = () => {
                         <th>Image</th>
                         <th>Service Name</th>
                         <th>Email</th>
+                        <th>Date</th>
                         <th>Price</th>
                         <th>Details</th>
                     </tr>

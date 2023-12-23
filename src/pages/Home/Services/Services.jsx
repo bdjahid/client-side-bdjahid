@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ServiceCard from "./ServiceCard";
 import { Helmet } from "react-helmet-async";
+import Product from './Product';
 
 
 
@@ -12,11 +13,48 @@ const Services = () => {
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
+
+    const [searchItems, setSearchItems] = useState(localStorage.getItem('searchTerm') || '');
+
+    const [searchResults, setSearchResults] = useState([]);
+    console.log(searchResults)
+    useEffect(() => {
+        const filteredServices = services.filter(service =>
+            service.service_name.toLowerCase().includes(searchItems.toLowerCase())
+        );
+        setSearchResults(filteredServices);
+    }, []);
+
+    const handleSearch = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const item = form.search.value;
+        console.log(item)
+        setSearchItems(item)
+        // localStorage.setItem('searchItems', item);
+    }
     return (
         <div className="my-10">
             <Helmet>
                 <title>Tours and Guide Agency | Services</title>
             </Helmet>
+            <form onSubmit={handleSearch}>
+                <div className="flex justify-center">
+                    <div className="join">
+                        <input name="search" type="text" placeholder="search ....." className="input input-bordered join-item" />
+                        <button className="btn btn-info join-item">Search</button>
+                    </div>
+                </div>
+            </form>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-10 ms-14 md:ms-0">
+                {
+                    searchResults.map(product => <Product
+                        key={product.id}
+                        product={product}
+                    ></Product>)
+                }
+            </div>
+
             <h2 className="text-4xl text-fuchsia-600 font-bold text-center my-10">Our Services</h2>
             <div>
                 {

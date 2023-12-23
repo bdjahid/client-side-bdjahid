@@ -29,7 +29,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/services",
-                element: <Services></Services>
+                element: <Services></Services>,
             },
             {
                 path: "/singleservices",
@@ -57,7 +57,8 @@ const router = createBrowserRouter([
             },
             {
                 path: "/myservices",
-                element: <MyServices></MyServices>
+                element: <MyServices></MyServices>,
+
             },
             {
                 path: "/myshedules",

@@ -1,5 +1,4 @@
 
-
 const TableRow = ({ book }) => {
     const { img, service, date, price, email } = book
     return (
