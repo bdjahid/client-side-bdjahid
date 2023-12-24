@@ -1,13 +1,10 @@
 
-import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
-import { AuthContext } from "../../provider/AuthProvider";
 import { useLoaderData } from 'react-router-dom';
 
 
 const Update = () => {
-    const { user } = useContext(AuthContext)
     const services = useLoaderData();
     // console.log(services)
     const { _id, area, description, photo, price, service } = services
@@ -24,7 +21,7 @@ const Update = () => {
         console.log(updateService)
 
 
-        fetch(`http://localhost:5000/product/${_id}`, {
+        fetch(`https://b8a11-server-side-bdjahid.vercel.app/product/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

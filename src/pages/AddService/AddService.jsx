@@ -1,13 +1,9 @@
-import { useContext } from "react";
-import { AuthContext } from "../../provider/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 
 
 
 const AddService = () => {
-    const { user } = useContext(AuthContext)
-    console.log(user)
     const handleAddService = e => {
         e.preventDefault()
         const from = e.target;
@@ -23,7 +19,7 @@ const AddService = () => {
         console.log(newService)
 
 
-        fetch('http://localhost:5000/product', {
+        fetch('https://b8a11-server-side-bdjahid.vercel.app/product', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -69,14 +65,13 @@ const AddService = () => {
                         <label className="label">
                             <span className="label-text">Service Provider Name</span>
                         </label>
-                        <input defaultValue={user?.displayName
-                        } type="text" name="name" placeholder="Enter your name" className="input input-bordered" required />
+                        <input type="text" name="name" placeholder="Enter your name" className="input input-bordered" required />
                     </div>
                     <div className="form-control mb-5">
                         <label className="label">
                             <span className="label-text">Service Provider Email</span>
                         </label>
-                        <input defaultValue={user?.email} type="text" name="email" placeholder="Enter email name" className="input input-bordered" required />
+                        <input type="text" name="email" placeholder="Enter email name" className="input input-bordered" required />
                     </div>
                     <div className="form-control w-full mb-5">
                         <label className="label">

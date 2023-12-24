@@ -1,18 +1,20 @@
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import TableCart from "./TableCart";
+import { useLoaderData } from "react-router-dom";
 
 
 
 const MyServices = () => {
-    const [services, setServices] = useState([]);
-    console.log(services)
-    const url = 'http://localhost:5000/product';
-    useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setServices(data))
-    }, [url])
+    const service = useLoaderData();
+    const [services, setServices] = useState(service);
+    console.log('sur', services)
+    // const url = 'https://b8a11-server-side-bdjahid.vercel.app/product';
+    // useEffect(() => {
+    //     fetch(url)
+    //         .then(res => res.json())
+    //         .then(data => setServices(data))
+    // }, [url])
 
 
     return (
@@ -23,6 +25,8 @@ const MyServices = () => {
                     services.map(booking => <TableCart
                         key={booking._id}
                         booking={booking}
+                        services={services}
+                        setServices={setServices}
                     ></TableCart>)
                 }
             </div>

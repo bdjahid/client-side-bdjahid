@@ -5,33 +5,26 @@ import Product from './Product';
 
 
 
+
 const Services = () => {
     const [dataLength, setDataLength] = useState(6)
     const [services, setServices] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://b8a11-server-side-bdjahid.vercel.app/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
 
-    const [searchItems, setSearchItems] = useState(localStorage.getItem('searchTerm') || '');
 
     const [searchResults, setSearchResults] = useState([]);
-    console.log(searchResults)
-    useEffect(() => {
-        const filteredServices = services.filter(service =>
-            service.service_name.toLowerCase().includes(searchItems.toLowerCase())
-        );
-        setSearchResults(filteredServices);
-    }, []);
 
-    const handleSearch = (event) => {
+
+    const handleSearch = async (event) => {
         event.preventDefault();
         const form = event.target;
         const item = form.search.value;
         console.log(item)
-        setSearchItems(item)
-        // localStorage.setItem('searchItems', item);
+
     }
     return (
         <div className="my-10">

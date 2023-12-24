@@ -28,7 +28,7 @@ const Booking = () => {
             price: price
         }
         console.log(order)
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://b8a11-server-side-bdjahid.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -68,15 +68,15 @@ const Booking = () => {
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Service Provider email</span>
+                            <span className="label-text">User name</span>
                         </label>
-                        <input type="email" name="email" defaultValue={user?.email} placeholder="email" className="input input-bordered" required />
+                        <input type="text" name="name" defaultValue={user?.displayName} placeholder="email" className="input input-bordered" disabled required />
                     </div>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Email</span>
+                            <span className="label-text">User Email</span>
                         </label>
-                        <input type="email" name="email" defaultValue={user?.email} placeholder="email" className="input input-bordered" required />
+                        <input type="email" name="email" defaultValue={user?.email} placeholder="email" className="input input-bordered" disabled required />
                     </div>
                     <div className="form-control">
                         <label className="label">
