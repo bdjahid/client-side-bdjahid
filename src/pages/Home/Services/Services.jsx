@@ -3,21 +3,15 @@ import ServiceCard from "./ServiceCard";
 import { Helmet } from "react-helmet-async";
 import Product from './Product';
 import axios from "axios";
-import { useLoaderData } from "react-router-dom";
-import CardService from "./CardService";
-
-
 
 
 
 
 const Services = () => {
-    const products = useLoaderData();
-    console.log(products)
     const [dataLength, setDataLength] = useState(6)
     const [services, setServices] = useState([]);
     useEffect(() => {
-        fetch('https://b8a11-server-side-bdjahid.vercel.app/services')
+        fetch('http://localhost:5000/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
@@ -32,13 +26,12 @@ const Services = () => {
         const item = form.search.value;
         console.log(item)
 
-        let result = await axios.get(`https://b8a11-server-side-bdjahid.vercel.app/services/${item}`)
+        await axios.get(`http://localhost:5000/services/${item}`, { withCredentials: true })
+            .then(res => {
+                setServices(res.data)
+            })
 
-        result = await result.json()
 
-        if (result) {
-            setServices(result)
-        }
     }
     return (
         <div className="my-10">
@@ -69,14 +62,6 @@ const Services = () => {
                         key={service._id}
                         service={service}
                     ></ServiceCard>)
-                }
-            </div>
-            <div>
-                {
-                    products.map(product => <CardService
-                        key={product._id}
-                        product={product}
-                    ></CardService>)
                 }
             </div>
             <div className={dataLength === services.length ? 'hidden' : ''}>

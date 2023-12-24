@@ -21,7 +21,7 @@ const Update = () => {
         console.log(updateService)
 
 
-        fetch(`https://b8a11-server-side-bdjahid.vercel.app/product/${_id}`, {
+        fetch(`http://localhost:5000/product/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

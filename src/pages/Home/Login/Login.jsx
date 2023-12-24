@@ -5,6 +5,8 @@ import { Button, Label, TextInput } from 'flowbite-react';
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
+
 
 const Login = () => {
     const { signInUser, googleSignIn, githubSignIn } = useContext(AuthContext);
@@ -45,9 +47,20 @@ const Login = () => {
         // create user
         signInUser(email, password)
             .then(result => {
-                const user = result.user
-                console.log(user)
-                navigate(from, { replace: true })
+                const loggedInUser = result.user
+                console.log(loggedInUser);
+                const user = { email }
+                // navigate(from, { replace: true })
+                // get access token
+                axios.post('http://localhost:5000/jwt', user, {
+                    withCredentials: true
+                })
+                    .then(res => {
+                        console.log(res.data)
+                        if (res?.data?.success) {
+                            navigate(from, { replace: true })
+                        }
+                    })
                 setSuccess('User logged in Successfully')
                 Swal.fire({
                     title: 'Success!',

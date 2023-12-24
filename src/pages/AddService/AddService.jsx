@@ -19,7 +19,7 @@ const AddService = () => {
         console.log(newService)
 
 
-        fetch('https://b8a11-server-side-bdjahid.vercel.app/product', {
+        fetch('http://localhost:5000/product', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

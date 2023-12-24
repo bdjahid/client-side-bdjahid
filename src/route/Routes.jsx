@@ -26,12 +26,12 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch('https://b8a11-server-side-bdjahid.vercel.app/services')
+                loader: () => fetch('http://localhost:5000/services')
             },
             {
                 path: "/services",
                 element: <Services></Services>,
-                loader: () => fetch('https://b8a11-server-side-bdjahid.vercel.app/product')
+                loader: () => fetch('http://localhost:5000/product')
             },
             {
                 path: "/singleservices",
@@ -46,12 +46,12 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <ViewDetails></ViewDetails>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`https://b8a11-server-side-bdjahid.vercel.app/services/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
             },
             {
                 path: "/booking/:id",
                 element: <Booking></Booking>,
-                loader: ({ params }) => fetch(`https://b8a11-server-side-bdjahid.vercel.app/services/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
             },
             {
                 path: "/addservices",
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
             {
                 path: "/update/:id",
                 element: <Update></Update>,
-                loader: ({ params }) => fetch(`https://b8a11-server-side-bdjahid.vercel.app/product/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`)
             },
             {
                 path: "/myservices",
