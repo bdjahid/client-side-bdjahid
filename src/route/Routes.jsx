@@ -31,6 +31,7 @@ const router = createBrowserRouter([
             {
                 path: "/services",
                 element: <Services></Services>,
+                loader: () => fetch('https://b8a11-server-side-bdjahid.vercel.app/product')
             },
             {
                 path: "/singleservices",
@@ -63,8 +64,9 @@ const router = createBrowserRouter([
             },
             {
                 path: "/myservices",
-                element: <MyServices></MyServices>,
-                loader: () => fetch('https://b8a11-server-side-bdjahid.vercel.app/product')
+                element: <PrivateRoute>
+                    <MyServices></MyServices>
+                </PrivateRoute>,
             },
             {
                 path: "/myshedules",

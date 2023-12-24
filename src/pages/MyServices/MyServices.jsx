@@ -1,25 +1,26 @@
 
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import TableCart from "./TableCart";
-import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
+
 
 
 
 const MyServices = () => {
-    const service = useLoaderData();
-    const [services, setServices] = useState(service);
+    const { user } = useContext(AuthContext);
+    const [services, setServices] = useState([]);
     console.log('sur', services)
-    // const url = 'https://b8a11-server-side-bdjahid.vercel.app/product';
-    // useEffect(() => {
-    //     fetch(url)
-    //         .then(res => res.json())
-    //         .then(data => setServices(data))
-    // }, [url])
+    const url = `https://b8a11-server-side-bdjahid.vercel.app/product?email=${user?.email}`;
+    useEffect(() => {
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setServices(data))
+    }, [url])
 
 
     return (
         <div className="overflow-x-auto">
-            <h1>Bookings : {services.length}</h1>
+            <h1>Add services : {services.length}</h1>
             <div>
                 {
                     services.map(booking => <TableCart
