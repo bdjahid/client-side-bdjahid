@@ -13,3 +13,6 @@ live link https://b8a11-client-side-bdjahid.web.app
 
 # five bullet point
 Flobite,deysi ui,tailwind css,firebase
+
+components 
+
