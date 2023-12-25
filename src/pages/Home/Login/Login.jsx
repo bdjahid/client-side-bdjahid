@@ -52,7 +52,7 @@ const Login = () => {
                 const user = { email }
                 // navigate(from, { replace: true })
                 // get access token
-                axios.post('http://localhost:5000/jwt', user, {
+                axios.post('https://b8a11-server-side-bdjahid.vercel.app/jwt', user, {
                     withCredentials: true
                 })
                     .then(res => {

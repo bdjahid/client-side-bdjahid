@@ -9,7 +9,7 @@ import { Dropdown } from "flowbite-react";
 
 
 const Nav = () => {
-    const { user, logOut, loading } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
     // console.log(user)
 
     const handleLogOut = () => {
@@ -47,7 +47,6 @@ const Nav = () => {
         </li>
     </>
     return (
-
         <div className="navbar bg-base-100">
             <div className="navbar-start">
                 <div className="dropdown">

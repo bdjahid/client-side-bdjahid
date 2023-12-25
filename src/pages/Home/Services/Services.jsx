@@ -11,7 +11,7 @@ const Services = () => {
     const [dataLength, setDataLength] = useState(6)
     const [services, setServices] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://b8a11-server-side-bdjahid.vercel.app/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
@@ -20,13 +20,13 @@ const Services = () => {
     const [searchResults, setSearchResults] = useState([]);
 
 
-    const handleSearch = async (event) => {
+    const handleSearch = (event) => {
         event.preventDefault();
         const form = event.target;
         const item = form.search.value;
         console.log(item)
 
-        await axios.get(`http://localhost:5000/services/${item}`, { withCredentials: true })
+        axios.get(`https://b8a11-server-side-bdjahid.vercel.app/search/${item}`, { withCredentials: true })
             .then(res => {
                 setServices(res.data)
             })

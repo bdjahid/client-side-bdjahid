@@ -28,7 +28,7 @@ const Booking = () => {
             price: price
         }
         console.log(order)
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://b8a11-server-side-bdjahid.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
